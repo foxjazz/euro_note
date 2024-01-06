@@ -55,18 +55,21 @@ def sendMail(diff, quote):
         
 
 
-quote = .7
-fe = True
-file_path = 'last_quote.json'
-if not os.path.exists(file_path):
-    fe = False    
-else:
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-        quote = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
 
 
-def run():    # Code to be executed every 5 minutes
+
+def run(): 
+    # Code to be executed every 5 minutes
+    
+    quote = .7
+    fe = True
+    file_path = 'last_quote.json'
+    if not os.path.exists(file_path):
+        fe = False    
+    else:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            quote = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
     diff = 0.005
     data = getEURUSD()
     with open("last_quote.json", "w") as file:
