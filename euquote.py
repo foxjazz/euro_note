@@ -65,10 +65,9 @@ else:
         data = json.load(file)
         quote = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
 
-while True:
-    # Code to be executed every 5 minutes
+
+def run():    # Code to be executed every 5 minutes
     data = getEURUSD()
-    
     with open("last_quote.json", "w") as file:
         json.dump(data,file)
     newquote = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
@@ -79,7 +78,7 @@ while True:
         sendMail(newquote)
         #print("newquote" + newquote)
     #exchange_rate = float(data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
-    
+run()    
     #print ("ER: ", exchange_rate)
     # Delay for 5 minutes (300 seconds)
-    time.sleep(450)
+
