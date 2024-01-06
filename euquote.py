@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 import http.client
 import json
-import smtplib
-from email.mime.text import MIMEText
 import os.path
 import time
 import platform
