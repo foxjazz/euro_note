@@ -2,6 +2,7 @@ import os.path
 import time
 import platform
 import subprocess
+os_name = platform.system()
 def sendMail(some):
     if os_name == "Darwin":
         with open("pw.txt", 'r') as file:
