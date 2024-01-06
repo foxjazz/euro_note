@@ -74,12 +74,12 @@ while True:
     newquote = data["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
     if (not fe):
         quote = newquote
-    print("quote: ", quote)
+    #print("quote: ", quote)
     if (float(newquote) - .005 > float(quote)):
         sendMail(newquote)
-        print("newquote" + newquote)
+        #print("newquote" + newquote)
     #exchange_rate = float(data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
     
     #print ("ER: ", exchange_rate)
     # Delay for 5 minutes (300 seconds)
-    time.sleep(300)
+    time.sleep(450)
