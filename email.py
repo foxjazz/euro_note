@@ -22,9 +22,9 @@ def sendMail(some):
         with open(file_path, 'w') as file:
             # Write multiple lines of text
             file.write("From: send@foxjazz.net\n")
-            file.write("Subject: EUR is {some} up.\n")
-            file.write("Euro is up by {some}\n")
-        command = '"ssmtp joe@foxjazz.net < mail.txt"'
+            file.write(f"Subject: EUR is {some} up.\n")
+            file.write(f"Euro is up by {some}\n")
+        command = 'ssmtp joe@foxjazz.net < mail.txt'
         try:
             # Run the command and capture the output
             output = subprocess.check_output(command, shell=True, text=True)
