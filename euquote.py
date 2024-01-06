@@ -48,8 +48,8 @@ def sendMail(some):
             file.write(f"Euro is up by {some}\n")
         command = '"ssmtp joe@foxjazz.net < mail.txt"'
         subprocess.check_output(command, shell=True, text=True)
-        command = '"ssmtp ruthdickinson@live.com < mail.txt"'
-        subprocess.check_output(command, shell=True, text=True)
+        #command = '"ssmtp ruthdickinson@live.com < mail.txt"'
+        #subprocess.check_output(command, shell=True, text=True)
             
             # Print the output
         
