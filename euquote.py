@@ -48,15 +48,12 @@ def sendMail(some):
             file.write(f"Subject: EUR is {some} up.\n")
             file.write(f"Euro is up by {some}\n")
         command = '"ssmtp joe@foxjazz.net < mail.txt"'
-        try:
-            # Run the command and capture the output
-            output = subprocess.check_output(command, shell=True, text=True)
+        subprocess.check_output(command, shell=True, text=True)
+        command = '"ssmtp ruthdickinson@live.com < mail.txt"'
+        subprocess.check_output(command, shell=True, text=True)
             
             # Print the output
-            print("Command Output:")
-            print(output)
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing the command: {e}")
+        
 
 
 quote = .7
