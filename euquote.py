@@ -54,7 +54,7 @@ while True:
     if (not fe):
         quote = newquote
     print("quote: ", quote)
-    if (float(newquote) - .05 > float(quote)):
+    if (float(newquote) - .005 > float(quote)):
         sendMail(newquote)
         print("newquote" + newquote)
     #exchange_rate = float(data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
