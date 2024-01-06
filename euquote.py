@@ -25,7 +25,7 @@ def getEURUSD():
    
     return json.loads(dc)
     
-def sendMail(some):
+def sendMail(diff, quote):
     if os_name == "Darwin":
         with open("pw.txt", 'r') as file:
             pw = file.readline()
@@ -44,8 +44,8 @@ def sendMail(some):
         with open(file_path, 'w') as file:
             # Write multiple lines of text
             file.write("From: send@foxjazz.net\n")
-            file.write(f"Subject: EUR is {some} up.\n")
-            file.write(f"Euro is up by {some}\n")
+            file.write(f"Subject: EUR is at {quote} up.\n")
+            file.write(f"Euro is up by {diff}, current value is {quote}\n")
         command = '"ssmtp joe@foxjazz.net < mail.txt"'
         subprocess.check_output(command, shell=True, text=True)
         #command = '"ssmtp ruthdickinson@live.com < mail.txt"'
@@ -67,6 +67,7 @@ else:
 
 
 def run():    # Code to be executed every 5 minutes
+    diff = 0.005
     data = getEURUSD()
     with open("last_quote.json", "w") as file:
         json.dump(data,file)
@@ -74,8 +75,8 @@ def run():    # Code to be executed every 5 minutes
     if (not fe):
         quote = newquote
     #print("quote: ", quote)
-    if (float(newquote) - .005 > float(quote)):
-        sendMail(newquote)
+    if ((float(newquote) - diff) > float(quote)):
+        sendMail(diff,newquote)
         #print("newquote" + newquote)
     #exchange_rate = float(data["Realtime Currency Exchange Rate"]["5. Exchange Rate"])
 run()    
